@@ -26,11 +26,10 @@ namespace StockPurchaseDictionary
             purchases.Add((ticker: "GOOGL", shares: 10, price: 150.17));
             purchases.Add((ticker: "AMZN", shares: 10, price: 50.84));
 
-            Console.WriteLine("Total Ownership Report\n------------------------");
             var report = new Dictionary<string, double>();
             foreach (var purchase in purchases)
             {
-                var value = Math.Round(purchase.shares * purchase.price, 2);
+                var value =purchase.shares * purchase.price;
                     if (report.ContainsKey(purchase.ticker))
                     {
                         report[purchase.ticker] += value;
@@ -41,6 +40,7 @@ namespace StockPurchaseDictionary
                     }
 
             }
+            Console.WriteLine("Total Ownership Report\n------------------------");
             foreach (var line in report)
             {
                  foreach(var stock in stocks)
